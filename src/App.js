@@ -1,16 +1,20 @@
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getCatsFetch } from "./redux/catState";
+
 import "./App.css";
-import Header from "./components/Header/Header";
-import Body from "./components/Body/Body";
-import ChangeColor from "./components/ChangeColor/ChangeColor";
 
 function App() {
-  return (
-    <div className="App">
-      <Header />
-      <Body />
-      <ChangeColor />
-    </div>
-  );
+  const cats = useSelector((state) => state.cats.cats);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCatsFetch());
+  }, [dispatch]);
+
+  console.log(cats);
+
+  return <div className="App"></div>;
 }
 
 export default App;

@@ -4,16 +4,21 @@ import App from "./App";
 
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
+import createSagaMiddleware from "@redux-saga/core";
 
-import userReducer from "./features/user";
-import themeReducer from './features/theme'
+import catsReducer from "./redux/catState";
+import catSaga from "./redux/catSaga";
+
+const saga = createSagaMiddleware();
 
 const store = configureStore({
   reducer: {
-    user: userReducer,
-    theme: themeReducer
+    cats: catsReducer,
   },
+  middleware: [saga],
 });
+
+saga.run(catSaga);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
