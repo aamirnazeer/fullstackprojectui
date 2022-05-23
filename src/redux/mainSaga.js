@@ -10,8 +10,7 @@ function* mainSaga() {
 }
 
 function* workApiCom() {
-  console.log(api)
-  const data = yield call(() => fetch(api));
+  const data = yield call(() => fetch(`${api}/api`));
   const dataText = yield data.text();
   yield put(setDataFromApi(dataText));
 }

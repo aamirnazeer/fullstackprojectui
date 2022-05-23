@@ -1,11 +1,11 @@
 const hostname = window && window.location && window.location.hostname;
 
 const projectAPI = () => {
-  // const apiURL = "http://localhost:3001/api";
-  const apiURL = 'https://fullstackprojectapi.herokuapp.com/api'
+  const apiURL = "http://localhost:3001";
+  // const apiURL = 'https://fullstackprojectapi.herokuapp.com'
 
-  if (hostname === "https://fullstackproject-peach.vercel.app/api") {
-    apiURL = "https://fullstackprojectapi.herokuapp.com/api";
+  if (hostname === "https://fullstackproject-peach.vercel.app") {
+    apiURL = "https://fullstackprojectapi.herokuapp.com";
   }
   return apiURL;
 };

@@ -17,7 +17,7 @@ function App() {
   }
 
   const apicall2 = () => {
-    fetch(api)
+    fetch(`${api}/api`)
       .then(response => response.text())
       .then(data => console.log(data))
   }
