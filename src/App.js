@@ -1,20 +1,32 @@
-import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getCatsFetch } from "./redux/catState";
+import { apiCom } from "./redux/mainState";
+
+import currentAPI from "./config";
 
 import "./App.css";
 
 function App() {
-  const cats = useSelector((state) => state.cats.cats);
+  const data = useSelector((state) => state.main.data);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getCatsFetch());
-  }, [dispatch]);
+  
+  const apiCall = () => {
+    dispatch(apiCom())
+  }
 
-  console.log(cats);
+  const apicall2 = () => {
+    fetch(currentAPI.currentAPI)
+      .then(response => response.text())
+      .then(data => console.log(data))
+  }
 
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <button onClick={apiCall}>click me</button>
+      <button onClick={apicall2}>hdh</button>
+      <p>{data}</p>
+    </div>
+  )
 }
 
 export default App;
