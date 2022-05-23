@@ -1,9 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import { apiCom } from "./redux/mainState";
 
-import currentAPI from "./config";
+import apiURL from "./config";
 
 import "./App.css";
+
+const api = apiURL.apiURL
 
 function App() {
   const data = useSelector((state) => state.main.data);
@@ -15,7 +17,7 @@ function App() {
   }
 
   const apicall2 = () => {
-    fetch(currentAPI.currentAPI)
+    fetch(api)
       .then(response => response.text())
       .then(data => console.log(data))
   }

@@ -11,5 +11,5 @@ const projectAPI = () => {
 };
 
 export default {
-	currentAPI: projectAPI()
+	apiURL: projectAPI()
 };
