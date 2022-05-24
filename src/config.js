@@ -1,7 +1,7 @@
 const hostname = window && window.location && window.location.hostname;
 
 const projectAPI = () => {
-  const apiURL = "";
+  let apiURL = "";
   if (hostname === "localhost:3000") {
     apiURL = "http://localhost:3001";
   }
