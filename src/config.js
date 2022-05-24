@@ -1,8 +1,8 @@
 const hostname = window && window.location && window.location.hostname;
 
 const projectAPI = () => {
-
-  if (hostname ===  'localhost:3000') {
+  const apiURL = "";
+  if (hostname === "localhost:3000") {
     apiURL = "http://localhost:3001";
   }
   // const apiURL = 'https://fullstackprojectapi.herokuapp.com'
@@ -14,5 +14,5 @@ const projectAPI = () => {
 };
 
 export default {
-	apiURL: projectAPI()
+  apiURL: projectAPI(),
 };
