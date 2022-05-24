@@ -1,32 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import "./index.css";
 import App from "./App";
+import { QueryClient, QueryClientProvider } from "react-query";
 
-import { configureStore } from "@reduxjs/toolkit";
-import { Provider } from "react-redux";
-import createSagaMiddleware from "@redux-saga/core";
-
-import mainSaga from "./redux/mainSaga";
-import mainStateReducer from "./redux/mainState"
-
-
-const saga = createSagaMiddleware();
-
-const store = configureStore({
-  reducer: {
-    main: mainStateReducer,
-  },
-  middleware: [saga],
-});
-
-saga.run(mainSaga);
-
+const queryClient = new QueryClient();
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <QueryClientProvider client={queryClient}>
       <App />
-    </Provider>
+    </QueryClientProvider>
   </React.StrictMode>
 );
 
