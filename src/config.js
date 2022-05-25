@@ -7,10 +7,10 @@ const Api = () => {
     // apiVar = `https://fullstackprojectapi.herokuapp.com/`;
   }
 
-  if (hostname === `https://fullstackproject-peach.vercel.app/`) {
+  if (hostname.includes(`vercel`)) {
     apiVar = `https://fullstackprojectapi.herokuapp.com/`;
   }
-  console.log(hostname)
+  console.log(hostname);
   return apiVar;
 };
 
